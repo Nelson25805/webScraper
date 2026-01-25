@@ -1,4 +1,3 @@
-# webScraper.py
 """
 Streamlit Web Scraper + Image Extractor
 - Enter a URL
