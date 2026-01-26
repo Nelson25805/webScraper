@@ -283,27 +283,16 @@ def run_streamlit_ui():
 
 
 # --------------------------
-# Friendly 'Run' wrapper for VS Code Run ▶
+# Run the Streamlit UI
 # --------------------------
 if __name__ == "__main__":
-    # If the script is run directly (e.g., pressing Run ▶ in VS Code) we spawn Streamlit,
-    # which opens a browser UI. If the file is launched with CLI args, you can extend
-    # this path to support CLI mode too.
-    import shutil
-    import subprocess
+    # When running with "streamlit run webScraper.py" Streamlit executes the file.
+    # Call the UI function so the app renders.
+    try:
+        run_streamlit_ui()
+    except Exception as e:
+        # Print the exception so you can see it in the terminal (helps debugging).
+        import traceback
 
-    # If args were given, you could parse them for CLI mode. Here we simply detect
-    # no args -> spawn Streamlit for the UI.
-    if len(sys.argv) == 1:
-        streamlit_bin = shutil.which("streamlit")
-        if streamlit_bin:
-            # Spawn streamlit in a separate process so the Run control returns immediately.
-            subprocess.Popen([sys.executable, "-m", "streamlit", "run", __file__])
-            print(
-                "Streamlit started. Check the terminal output in VS Code or your browser at http://localhost:8501"
-            )
-        else:
-            print("Streamlit not found. Run: python -m pip install streamlit")
-    else:
-        # If you run with arguments in the future, handle CLI flow here.
-        print("This script currently launches the Streamlit UI when run without args.")
+        traceback.print_exc()
+        print("Failed to start Streamlit UI:", e)
