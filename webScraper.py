@@ -1,12 +1,12 @@
+# webScraper.py
 """
 Streamlit Web Scraper + Image Extractor
 - Enter a URL
 - Optionally provide a CSS selector to extract elements (default: "p")
 - Optionally scrape images on the page
-- Preview results and download CSV / images ZIP
+- Preview results and download CSV / images ZIP / image metadata Excel
 
 Run:
-- Press Run in VS Code (the wrapper will spawn Streamlit), or
 - streamlit run webScraper.py
 """
 
@@ -17,14 +17,13 @@ import csv
 import io
 import os
 import zipfile
-import tempfile
 from typing import List, Dict, Optional, Any
 from urllib.parse import urljoin, urlparse
 
 import requests
 from bs4 import BeautifulSoup, Tag
 
-# optional pandas for prettier tables
+# optional pandas for prettier tables / Excel
 try:
     import pandas as pd
 except Exception:
@@ -119,7 +118,6 @@ class Scraper:
         selector: Optional[str] = None,
         limit: Optional[int] = None,
     ) -> List[str]:
-        # If selector is provided, first select elements and look for <img> inside them.
         imgs = []
         if selector:
             els = self.select(soup, selector, limit=None)
@@ -146,6 +144,118 @@ class Scraper:
             return unique[:limit]
         return unique
 
+    def extract_image_metadata(
+        self,
+        soup: BeautifulSoup,
+        base_url: str,
+        selector: Optional[str] = None,
+        limit: Optional[int] = None,
+        run_ocr: bool = False,
+    ) -> List[Dict[str, Any]]:
+        """
+        Return metadata for images: url, filename, alt, title, caption (figcaption),
+        parent_text, prev_sibling_text, next_sibling_text, container_text, ocr_text.
+        """
+        img_urls = self.extract_image_urls(
+            soup, base_url, selector=selector, limit=limit
+        )
+        rows: List[Dict[str, Any]] = []
+
+        # optional pytesseract OCR check
+        ocr_available = False
+        if run_ocr:
+            try:
+                import pytesseract  # type: ignore
+                from PIL import Image  # type: ignore
+
+                ocr_available = True
+            except Exception:
+                ocr_available = False
+
+        for i, iu in enumerate(img_urls, start=1):
+            img_tag = None
+            if selector:
+                for el in self.select(soup, selector, limit=None):
+                    for img in el.find_all("img"):
+                        src = img.get("src")
+                        if src and urljoin(base_url, src) == iu:
+                            img_tag = img
+                            break
+                    if img_tag:
+                        break
+            if not img_tag:
+                for img in soup.find_all("img"):
+                    src = img.get("src")
+                    if src and urljoin(base_url, src) == iu:
+                        img_tag = img
+                        break
+
+            parsed = urlparse(iu)
+            fname = os.path.basename(parsed.path) or f"image_{i}.jpg"
+
+            alt = img_tag.get("alt") if img_tag is not None else ""
+            title = img_tag.get("title") if img_tag is not None else ""
+            caption = ""
+            parent_text = ""
+            prev_text = ""
+            next_text = ""
+            container_text = ""
+
+            if img_tag is not None:
+                fig = img_tag.find_parent("figure")
+                if fig:
+                    fc = fig.find("figcaption")
+                    if fc:
+                        caption = fc.get_text(strip=True)
+                parent = img_tag.find_parent()
+                if parent:
+                    parent_text = parent.get_text(" ", strip=True)
+                    prev_sib = img_tag.find_previous_sibling()
+                    if prev_sib:
+                        prev_text = prev_sib.get_text(" ", strip=True)
+                    next_sib = img_tag.find_next_sibling()
+                    if next_sib:
+                        next_text = next_sib.get_text(" ", strip=True)
+                container = img_tag.find_parent(
+                    ["div", "article", "section", "p", "main"]
+                )
+                if container:
+                    container_text = container.get_text(" ", strip=True)
+
+            ocr_text = ""
+            if run_ocr and ocr_available:
+                try:
+                    b = self.http.fetch_bytes(iu)
+                    if b:
+                        from PIL import Image  # type: ignore
+                        import io as _io
+
+                        img_stream = _io.BytesIO(b)
+                        im = Image.open(img_stream).convert("RGB")
+                        import pytesseract  # type: ignore
+
+                        ocr_text = pytesseract.image_to_string(im)
+                except Exception:
+                    ocr_text = ""
+
+            rows.append(
+                {
+                    "index": i,
+                    "image_url": iu,
+                    "filename": fname,
+                    "alt": alt or "",
+                    "title": title or "",
+                    "caption": caption or "",
+                    "parent_text": parent_text or "",
+                    "prev_sibling_text": prev_text or "",
+                    "next_sibling_text": next_text or "",
+                    "container_text": container_text or "",
+                    "ocr_text": ocr_text or "",
+                }
+            )
+
+        return rows
+
 
 # --------------------------
 # Storage helpers
@@ -160,12 +270,35 @@ def rows_to_csv_bytes(rows: List[Dict[str, Any]]) -> bytes:
     return output.getvalue().encode("utf-8")
 
 
+def rows_to_excel_bytes(rows: List[Dict[str, Any]]) -> bytes:
+    """
+    Convert rows to an Excel .xlsx in-memory. Uses pandas + openpyxl if available,
+    otherwise falls back to CSV bytes.
+    """
+    if not rows:
+        return b""
+    if pd is None:
+        return rows_to_csv_bytes(rows)
+    try:
+        buf = io.BytesIO()
+        df = pd.DataFrame(rows)
+        # Use openpyxl engine. Requires openpyxl installed.
+        df.to_excel(buf, index=False, engine="openpyxl")
+        buf.seek(0)
+        return buf.read()
+    except Exception:
+        # fall back to CSV bytes if Excel writing fails
+        return rows_to_csv_bytes(rows)
+
+
 def images_to_zip_bytes(images: List[Dict[str, Any]]) -> bytes:
     # images: list of {"filename": ..., "data": bytes}
     mem = io.BytesIO()
     with zipfile.ZipFile(mem, mode="w", compression=zipfile.ZIP_DEFLATED) as zf:
         for img in images:
-            zf.writestr(img["filename"], img["data"])
+            # ensure unique filenames by prefixing index if duplicates exist
+            name = img.get("filename") or "image.bin"
+            zf.writestr(name, img["data"])
     mem.seek(0)
     return mem.read()
 
@@ -233,49 +366,81 @@ def run_streamlit_ui():
                 else:
                     st.write(rows)
 
-                # Images
+                # Images + metadata extraction
                 if scrape_images:
                     img_limit = max_images if max_images > 0 else None
-                    img_urls = scraper.extract_image_urls(
-                        soup, url, selector=selector or None, limit=img_limit
+                    run_ocr = st.sidebar.checkbox(
+                        "Run OCR on images (slow)", value=False
                     )
-                    st.write(f"Found {len(img_urls)} image URLs.")
-                    if img_urls:
-                        # Download images (first N)
-                        images: List[Dict[str, Any]] = []
-                        with st.spinner("Downloading images..."):
-                            for i, iu in enumerate(img_urls, 1):
-                                data = scraper.http.fetch_bytes(iu)
-                                if data:
-                                    # pick base filename from URL
-                                    parsed = urlparse(iu)
-                                    fname = (
-                                        os.path.basename(parsed.path)
-                                        or f"image_{i}.jpg"
-                                    )
-                                    # sanitize names if needed
-                                    images.append({"filename": fname, "data": data})
-                                else:
-                                    print(f"failed to download {iu}")
+                    st.write("Extracting image metadata...")
+                    img_meta = scraper.extract_image_metadata(
+                        soup,
+                        url,
+                        selector=selector or None,
+                        limit=img_limit,
+                        run_ocr=run_ocr,
+                    )
+                    st.write(f"Found {len(img_meta)} images with metadata.")
 
-                        # Display first few images
-                        max_preview = 10
-                        preview = images[:max_preview]
-                        if preview:
-                            st.write("Image preview (first images):")
-                            st.image([img["data"] for img in preview], width=200)
+                    if img_meta:
+                        if pd is not None:
+                            df_imgs = pd.DataFrame(img_meta)
+                            st.dataframe(df_imgs)
 
-                        # Offer zip download
-                        if images:
-                            zip_bytes = images_to_zip_bytes(images)
+                            # Downloads: CSV and Excel
+                            csv_bytes = rows_to_csv_bytes(img_meta)
                             st.download_button(
-                                "Download images (zip)",
-                                data=zip_bytes,
-                                file_name="images.zip",
-                                mime="application/zip",
+                                "Download image metadata CSV",
+                                data=csv_bytes,
+                                file_name="images_metadata.csv",
+                                mime="text/csv",
+                            )
+
+                            excel_bytes = rows_to_excel_bytes(img_meta)
+                            st.download_button(
+                                "Download image metadata (Excel)",
+                                data=excel_bytes,
+                                file_name="images_metadata.xlsx",
+                                mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
                             )
                         else:
-                            st.warning("No images downloaded successfully.")
+                            st.write(img_meta)
+                            csv_bytes = rows_to_csv_bytes(img_meta)
+                            st.download_button(
+                                "Download image metadata CSV",
+                                data=csv_bytes,
+                                file_name="images_metadata.csv",
+                                mime="text/csv",
+                            )
+
+                        # Download images as zip (optionally)
+                        if st.button("Download images (zip)"):
+                            images: List[Dict[str, Any]] = []
+                            with st.spinner("Downloading images..."):
+                                for i, im in enumerate(img_meta, 1):
+                                    iu = im.get("image_url")
+                                    data = scraper.http.fetch_bytes(iu) if iu else None
+                                    if data:
+                                        # create a safe filename using index + original name
+                                        parsed = urlparse(iu)
+                                        base = (
+                                            os.path.basename(parsed.path)
+                                            or f"image_{i}.bin"
+                                        )
+                                        safe_name = f"{i:03d}_{base}"
+                                        images.append(
+                                            {"filename": safe_name, "data": data}
+                                        )
+                            if images:
+                                zip_bytes = images_to_zip_bytes(images)
+                                st.download_button(
+                                    "Download images (zip)",
+                                    data=zip_bytes,
+                                    file_name="images.zip",
+                                    mime="application/zip",
+                                )
+                            else:
+                                st.warning("No images downloaded successfully.")
 
     # small footer
     st.sidebar.markdown("---")
@@ -291,7 +456,6 @@ if __name__ == "__main__":
     try:
         run_streamlit_ui()
     except Exception as e:
-        # Print the exception so you can see it in the terminal (helps debugging).
         import traceback
 
         traceback.print_exc()
