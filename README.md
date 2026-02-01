@@ -26,7 +26,7 @@
 
 
   <p align="center">
-    An application to manage your passwords for anything you need.
+    An application to scrape websites of data on the page, including images.
     <br />
     <a href="https://github.com/Nelson25805/igdbGameInfo"><strong>Explore the docs »</strong></a>
     <br />
