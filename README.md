@@ -69,7 +69,7 @@
 
 ![Project Name Screen Shot][project-screenshot]
 
-The **Ruby Password Manager** is a local password management application designed to securely store, retrieve, and manage login credentials.
+The **Web Scraper** is a UI application that allows for website scraping of information, and images.
 
 ### Key features
 - 🔐 Local encrypted credential storage (no cloud sync).
