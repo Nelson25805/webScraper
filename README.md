@@ -74,12 +74,16 @@ This small Streamlit application fetches a webpage (requests + BeautifulSoup), e
 The app is built for educational use and quick ad-hoc scraping tasks where JavaScript rendering is not required. It deliberately keeps everything local — there is no cloud storage or telemetry.
 
 ### Key features
-- 🔐 Local encrypted credential storage (no cloud sync).
-- 🗝️ Master password backed authentication.
-- 🔍 Per-user encrypted data key (EDK) used to encrypt credentials.
-- 💾 One-time recovery token (shown on account creation / regeneration) to recover data if the master password is lost.
-- ➕ Add / Edit / Delete credentials.
 
+- Fetch page HTML using a resilient HttpClient (retries + backoff).
+- Extract elements by CSS selector or run against the whole page.
+- Extract images (unique URLs) with rich metadata: alt, title, caption (figcaption), surrounding text, container text, and optional OCR text.
+- Preview results in the Streamlit UI and download:
+- extracted text/results as CSV
+- image metadata as CSV or Excel (.xlsx)
+- downloaded images as a ZIP archive
+- Optional OCR using pytesseract + Pillow when enabled by the user.
+- Adjustable limits for elements and images to avoid huge downloads.
 
 This project is intended for educational purposes and personal use, focusing on clean Ruby design and fundamental security concepts.
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
