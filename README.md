@@ -69,7 +69,9 @@
 
 ![Project Name Screen Shot][project-screenshot]
 
-The **Web Scraper** is a UI application that allows for website scraping of information, and images.
+This small Streamlit application fetches a webpage (requests + BeautifulSoup), extracts text/HTML elements and image URLs, shows image metadata and optionally downloads images and metadata as CSV / Excel / ZIP.
+
+The app is built for educational use and quick ad-hoc scraping tasks where JavaScript rendering is not required. It deliberately keeps everything local — there is no cloud storage or telemetry.
 
 ### Key features
 - 🔐 Local encrypted credential storage (no cloud sync).
@@ -77,6 +79,7 @@ The **Web Scraper** is a UI application that allows for website scraping of info
 - 🔍 Per-user encrypted data key (EDK) used to encrypt credentials.
 - 💾 One-time recovery token (shown on account creation / regeneration) to recover data if the master password is lost.
 - ➕ Add / Edit / Delete credentials.
+
 
 This project is intended for educational purposes and personal use, focusing on clean Ruby design and fundamental security concepts.
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
