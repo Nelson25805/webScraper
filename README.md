@@ -93,7 +93,7 @@ This project is intended for educational purposes and personal use, focusing on 
 
 | Badge | Description |
 |:-----:|-------------|
-| [![Ruby](GithubImages/rubyShield.svg)][Ruby-url] | Core programming language. |
+| [![Python](GithubImages/pythonShield.svg)][Python-url] | Core programming language. |
 | [![GTK3](GithubImages/gtk3Shield.svg)][GTK3-url] | Desktop GUI toolkit. |
 | [![SQLite3](GithubImages/sQLite3Shield.svg)][SQLite3-url] | SQL database storage system for data. |
 | [![OpenSSL](GithubImages/openSSLShield.svg)][OpenSSL-url] | Encryption/decryption cryptography used. |
