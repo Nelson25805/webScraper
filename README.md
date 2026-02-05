@@ -153,6 +153,24 @@ To start, you have two options of using this software.
 <!-- USAGE EXAMPLES -->
 ## Usage
 
+Start the app: streamlit run webScraper.py.
+
+In the sidebar provide:
+
+Website URL — target page to fetch (e.g. https://example.com).
+
+CSS selector (optional) — narrow extraction to specific elements (e.g. .post, article, div.product). Leave empty to run on the whole page.
+
+Limit — number of elements to return (0 = all).
+
+Scrape images — toggle to extract image metadata and download images.
+
+Max images to download — limits image results when downloading.
+
+Run OCR on images (slow, optional) — requires Tesseract + pytesseract + Pillow.
+
+Hit Scrape. Results will appear in the main area (table/list). Use the download buttons to get CSV, Excel, or ZIP files.
+
 ## Filtered Game Search:
 ![Project Name Screen Shot][project-screenshot2]
 
