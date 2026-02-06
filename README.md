@@ -171,16 +171,7 @@ Run OCR on images (slow, optional) — requires Tesseract + pytesseract + Pillow
 
 Hit Scrape. Results will appear in the main area (table/list). Use the download buttons to get CSV, Excel, or ZIP files.
 
-## Filtered Game Search:
-![Project Name Screen Shot][project-screenshot2]
-
-This page allows you to save, view, and edit passwords.
-
-
-## Random Game Search:
-![Project Name Screen Shot][project-screenshot3]
-
-This page allows you to search for a random game in the IGDB database, giving you related information about said game if it's available.
+This tool fetches and downloads content from the web. Respect site terms of service, copyright, and robots.txt. Do not use this tool for scraping private or protected data.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
