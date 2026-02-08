@@ -94,7 +94,7 @@ This project is intended for educational purposes and personal use, focusing on 
 | Badge | Description |
 |:-----:|-------------|
 | [![Python](GithubImages/pythonShield.svg)][Python-url] | Core programming language. |
-| [![GTK3](GithubImages/gtk3Shield.svg)][GTK3-url] | Desktop GUI toolkit. |
+| [![Streamlit](GithubImages/streamlitShield.svg)][Streamlit-url] | Lightweight web UI for the app. |
 | [![SQLite3](GithubImages/sQLite3Shield.svg)][SQLite3-url] | SQL database storage system for data. |
 | [![OpenSSL](GithubImages/openSSLShield.svg)][OpenSSL-url] | Encryption/decryption cryptography used. |
 | [![bcrypt](GithubImages/bcryptShield.svg)][bcrypt-url] | Password hashing library. |
@@ -256,8 +256,8 @@ Project Link: [https://github.com/Nelson25805/igdbGameInfo](https://github.com/N
 [project-screenshot5]: GithubImages/envExample.png
 
 
-[Ruby-url]: https://www.ruby-lang.org/en/downloads/
-[GTK3-url]: https://www.gtk.org/
+[Python-url]: https://www.python.org/
+[Streamlit-url]: https://streamlit.io/
 [SQLite3-url]: https://www.sqlite.org/download.html
 [OpenSSL-url]: https://openssl-library.org/source/
 [Bcrypt-url]: https://rubygems.org/gems/bcrypt/versions/3.1.12?locale=en
