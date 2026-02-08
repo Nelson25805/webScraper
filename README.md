@@ -99,7 +99,6 @@ This project is intended for educational purposes and personal use, focusing on 
 | [![OpenSSL](GithubImages/openSSLShield.svg)][OpenSSL-url] | Encryption/decryption cryptography used. |
 | [![bcrypt](GithubImages/bcryptShield.svg)][bcrypt-url] | Password hashing library. |
 
-Python — core language
 Streamlit — lightweight web UI for the app
 requests — HTTP client
 BeautifulSoup (bs4) — HTML parsing and CSS selection
