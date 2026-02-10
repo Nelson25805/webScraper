@@ -95,13 +95,11 @@ This project is intended for educational purposes and personal use, focusing on 
 |:-----:|-------------|
 | [![Python](GithubImages/pythonShield.svg)][Python-url] | Core programming language. |
 | [![Streamlit](GithubImages/streamlitShield.svg)][Streamlit-url] | Lightweight web UI for the app. |
-| [![SQLite3](GithubImages/sQLite3Shield.svg)][SQLite3-url] | SQL database storage system for data. |
+| [![BeautifulSoup](GithubImages/sQLite3Shield.svg)][BeautifulSoup-url] | HTML parsing and CSS selection. |
 | [![OpenSSL](GithubImages/openSSLShield.svg)][OpenSSL-url] | Encryption/decryption cryptography used. |
 | [![bcrypt](GithubImages/bcryptShield.svg)][bcrypt-url] | Password hashing library. |
 
-Streamlit — lightweight web UI for the app
 requests — HTTP client
-BeautifulSoup (bs4) — HTML parsing and CSS selection
 pandas (optional) — nicer tables and Excel output
 Pillow, pytesseract (optional) — OCR support
 
@@ -258,7 +256,7 @@ Project Link: [https://github.com/Nelson25805/igdbGameInfo](https://github.com/N
 
 [Python-url]: https://www.python.org/
 [Streamlit-url]: https://streamlit.io/
-[SQLite3-url]: https://www.sqlite.org/download.html
+[BeautifulSoup-url]: https://pypi.org/project/beautifulsoup4/
 [OpenSSL-url]: https://openssl-library.org/source/
 [Bcrypt-url]: https://rubygems.org/gems/bcrypt/versions/3.1.12?locale=en
 
