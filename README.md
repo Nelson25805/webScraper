@@ -96,11 +96,10 @@ This project is intended for educational purposes and personal use, focusing on 
 | [![Python](GithubImages/pythonShield.svg)][Python-url] | Core programming language. |
 | [![Streamlit](GithubImages/streamlitShield.svg)][Streamlit-url] | Lightweight web UI for the app. |
 | [![BeautifulSoup](GithubImages/sQLite3Shield.svg)][BeautifulSoup-url] | HTML parsing and CSS selection. |
-| [![OpenSSL](GithubImages/openSSLShield.svg)][OpenSSL-url] | Encryption/decryption cryptography used. |
+| [![Pandas](GithubImages/openSSLShield.svg)][Pandas-url] | Used for nicer tables / excel output. |
 | [![bcrypt](GithubImages/bcryptShield.svg)][bcrypt-url] | Password hashing library. |
 
 requests — HTTP client
-pandas (optional) — nicer tables and Excel output
 Pillow, pytesseract (optional) — OCR support
 
 
@@ -257,7 +256,7 @@ Project Link: [https://github.com/Nelson25805/igdbGameInfo](https://github.com/N
 [Python-url]: https://www.python.org/
 [Streamlit-url]: https://streamlit.io/
 [BeautifulSoup-url]: https://pypi.org/project/beautifulsoup4/
-[OpenSSL-url]: https://openssl-library.org/source/
+[Pandas-url]: https://pandas.pydata.org/
 [Bcrypt-url]: https://rubygems.org/gems/bcrypt/versions/3.1.12?locale=en
 
 [Python]: https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54
