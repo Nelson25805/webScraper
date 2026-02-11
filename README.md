@@ -97,10 +97,7 @@ This project is intended for educational purposes and personal use, focusing on 
 | [![Streamlit](GithubImages/streamlitShield.svg)][Streamlit-url] | Lightweight web UI for the app. |
 | [![BeautifulSoup](GithubImages/sQLite3Shield.svg)][BeautifulSoup-url] | HTML parsing and CSS selection. |
 | [![Pandas](GithubImages/openSSLShield.svg)][Pandas-url] | Used for nicer tables / excel output. |
-| [![bcrypt](GithubImages/bcryptShield.svg)][bcrypt-url] | Password hashing library. |
-
-requests — HTTP client
-Pillow, pytesseract (optional) — OCR support
+| [![Pillow](GithubImages/bcryptShield.svg)][Pillow-url] | pytesseract (optional) — OCR support. |
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -257,7 +254,7 @@ Project Link: [https://github.com/Nelson25805/igdbGameInfo](https://github.com/N
 [Streamlit-url]: https://streamlit.io/
 [BeautifulSoup-url]: https://pypi.org/project/beautifulsoup4/
 [Pandas-url]: https://pandas.pydata.org/
-[Bcrypt-url]: https://rubygems.org/gems/bcrypt/versions/3.1.12?locale=en
+[Pillow-url]: https://pypi.org/project/pillow/
 
 [Python]: https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54
 [Tkinter]: https://img.shields.io/badge/Tkinter-8.6-green
