@@ -94,17 +94,10 @@ This project is intended for educational purposes and personal use, focusing on 
 | Badge | Description |
 |:-----:|-------------|
 | [![Python](GithubImages/pythonShield.svg)][Python-url] | Core programming language. |
-| [![GTK3](GithubImages/gtk3Shield.svg)][GTK3-url] | Desktop GUI toolkit. |
-| [![SQLite3](GithubImages/sQLite3Shield.svg)][SQLite3-url] | SQL database storage system for data. |
-| [![OpenSSL](GithubImages/openSSLShield.svg)][OpenSSL-url] | Encryption/decryption cryptography used. |
-| [![bcrypt](GithubImages/bcryptShield.svg)][bcrypt-url] | Password hashing library. |
-
-Python — core language
-Streamlit — lightweight web UI for the app
-requests — HTTP client
-BeautifulSoup (bs4) — HTML parsing and CSS selection
-pandas (optional) — nicer tables and Excel output
-Pillow, pytesseract (optional) — OCR support
+| [![Streamlit](GithubImages/streamlitShield.svg)][Streamlit-url] | Lightweight web UI for the app. |
+| [![BeautifulSoup](GithubImages/sQLite3Shield.svg)][BeautifulSoup-url] | HTML parsing and CSS selection. |
+| [![Pandas](GithubImages/openSSLShield.svg)][Pandas-url] | Used for nicer tables / excel output. |
+| [![Pillow](GithubImages/bcryptShield.svg)][Pillow-url] | pytesseract (optional) — OCR support. |
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -153,16 +146,25 @@ To start, you have two options of using this software.
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-## Filtered Game Search:
-![Project Name Screen Shot][project-screenshot2]
+Start the app: streamlit run webScraper.py.
 
-This page allows you to save, view, and edit passwords.
+In the sidebar provide:
 
+Website URL — target page to fetch (e.g. https://example.com).
 
-## Random Game Search:
-![Project Name Screen Shot][project-screenshot3]
+CSS selector (optional) — narrow extraction to specific elements (e.g. .post, article, div.product). Leave empty to run on the whole page.
 
-This page allows you to search for a random game in the IGDB database, giving you related information about said game if it's available.
+Limit — number of elements to return (0 = all).
+
+Scrape images — toggle to extract image metadata and download images.
+
+Max images to download — limits image results when downloading.
+
+Run OCR on images (slow, optional) — requires Tesseract + pytesseract + Pillow.
+
+Hit Scrape. Results will appear in the main area (table/list). Use the download buttons to get CSV, Excel, or ZIP files.
+
+This tool fetches and downloads content from the web. Respect site terms of service, copyright, and robots.txt. Do not use this tool for scraping private or protected data.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -248,16 +250,10 @@ Project Link: [https://github.com/Nelson25805/igdbGameInfo](https://github.com/N
 [project-screenshot5]: GithubImages/envExample.png
 
 
-[Ruby-url]: https://www.ruby-lang.org/en/downloads/
-[GTK3-url]: https://www.gtk.org/
-[SQLite3-url]: https://www.sqlite.org/download.html
-[OpenSSL-url]: https://openssl-library.org/source/
-[Bcrypt-url]: https://rubygems.org/gems/bcrypt/versions/3.1.12?locale=en
+[Python-url]: https://www.python.org/
+[Streamlit-url]: https://streamlit.io/
+[BeautifulSoup-url]: https://pypi.org/project/beautifulsoup4/
+[Pandas-url]: https://pandas.pydata.org/
+[Pillow-url]: https://pypi.org/project/pillow/
 
 [Python]: https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54
-[Tkinter]: https://img.shields.io/badge/Tkinter-8.6-green
-[JQuery.com]: https://img.shields.io/badge/jQuery-0769AD?style=for-the-badge&logo=jquery&logoColor=white
-
-
-
-
