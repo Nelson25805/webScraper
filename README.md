@@ -257,9 +257,3 @@ Project Link: [https://github.com/Nelson25805/igdbGameInfo](https://github.com/N
 [Pillow-url]: https://pypi.org/project/pillow/
 
 [Python]: https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54
-[Tkinter]: https://img.shields.io/badge/Tkinter-8.6-green
-[JQuery.com]: https://img.shields.io/badge/jQuery-0769AD?style=for-the-badge&logo=jquery&logoColor=white
-
-
-
-
