@@ -29,9 +29,9 @@ except Exception:
     pd = None
 
 
-# --------------------------
+# ---------------------
 # Simple HttpClient
-# --------------------------
+# ---------------------
 class HttpClient:
     def __init__(
         self,
