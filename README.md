@@ -96,7 +96,7 @@ This project is intended for educational purposes and personal use, focusing on 
 | [![Python](GithubImages/pythonShield.svg)][Python-url] | Core programming language. |
 | [![Streamlit](GithubImages/streamlitShield.svg)][Streamlit-url] | Lightweight web UI for the app. |
 | [![BeautifulSoup](GithubImages/sQLite3Shield.svg)][BeautifulSoup-url] | HTML parsing and CSS selection. |
-| [![Pandas](GithubImages/openSSLShield.svg)][Pandas-url] | Used for nicer tables / excel output. |
+| [![Pandas](GithubImages/pandasShield.svg)][Pandas-url] | Used for nicer tables / excel output. |
 | [![Pillow](GithubImages/bcryptShield.svg)][Pillow-url] | pytesseract (optional) — OCR support. |
 
 
