@@ -97,7 +97,7 @@ This project is intended for educational purposes and personal use, focusing on 
 | [![Streamlit](GithubImages/streamlitShield.svg)][Streamlit-url] | Lightweight web UI for the app. |
 | [![BeautifulSoup](GithubImages/beautifulSoupShield.svg)][BeautifulSoup-url] | HTML parsing and CSS selection. |
 | [![Pandas](GithubImages/pandasShield.svg)][Pandas-url] | Used for nicer tables / excel output. |
-| [![Pillow](GithubImages/bcryptShield.svg)][Pillow-url] | pytesseract (optional) — OCR support. |
+| [![Pillow](GithubImages/pillowShield.svg)][Pillow-url] | pytesseract (optional) — OCR support. |
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
