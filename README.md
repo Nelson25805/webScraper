@@ -114,7 +114,7 @@ To start, you have two options of using this software.
 
 1. Clone the repo
    ```sh
-   git clone https://github.com/Nelson25805/igdbGameInfo.git
+   git clone https://github.com/Nelson25805/webScraper.git
    ```
    
 2. If using option 1, skip to step 5.
