@@ -240,7 +240,6 @@ Project Link: [https://github.com/Nelson25805/igdbGameInfo](https://github.com/N
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://www.linkedin.com/in/nelson-mcfadyen-806134133/
 
-[project-Image]: GithubImages/projectImage.png
 
 [project-screenshot]: GithubImages/mainScreen.png
 [project-screenshot2]: GithubImages/filteredGameSearch.gif
