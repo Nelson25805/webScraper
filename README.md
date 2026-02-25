@@ -95,9 +95,9 @@ This project is intended for educational purposes and personal use, focusing on 
 |:-----:|-------------|
 | [![Python](GithubImages/pythonShield.svg)][Python-url] | Core programming language. |
 | [![Streamlit](GithubImages/streamlitShield.svg)][Streamlit-url] | Lightweight web UI for the app. |
-| [![BeautifulSoup](GithubImages/sQLite3Shield.svg)][BeautifulSoup-url] | HTML parsing and CSS selection. |
-| [![Pandas](GithubImages/openSSLShield.svg)][Pandas-url] | Used for nicer tables / excel output. |
-| [![Pillow](GithubImages/bcryptShield.svg)][Pillow-url] | pytesseract (optional) — OCR support. |
+| [![BeautifulSoup](GithubImages/beautifulSoupShield.svg)][BeautifulSoup-url] | HTML parsing and CSS selection. |
+| [![Pandas](GithubImages/pandasShield.svg)][Pandas-url] | Used for nicer tables / excel output. |
+| [![Pillow](GithubImages/pillowShield.svg)][Pillow-url] | pytesseract (optional) — OCR support. |
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -114,7 +114,7 @@ To start, you have two options of using this software.
 
 1. Clone the repo
    ```sh
-   git clone https://github.com/Nelson25805/igdbGameInfo.git
+   git clone https://github.com/Nelson25805/webScraper.git
    ```
    
 2. If using option 1, skip to step 5.
@@ -202,8 +202,8 @@ Don't forget to give the project a star! Thanks again!
 
 ## Top contributors:
 
-<a href="https://github.com/Nelson25805/igdbGameInfo/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=Nelson25805/igdbGameInfo" alt="contrib.rocks image" />
+<a href="https://github.com/Nelson25805/webScraper/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=Nelson25805/webScraper" alt="contrib.rocks image" />
 </a>
 
 
@@ -220,7 +220,7 @@ Distributed under the project_license. See `LICENSE.txt` for more information.
 
 Nelson McFadyen <!-- - [@twitter_handle](https://twitter.com/twitter_handle) --> - Nelson25805@hotmail.com
 
-Project Link: [https://github.com/Nelson25805/igdbGameInfo](https://github.com/Nelson25805/igdbGameInfo)
+Project Link: [https://github.com/Nelson25805/igdbGameInfo](https://github.com/Nelson25805/webScraper)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -240,7 +240,6 @@ Project Link: [https://github.com/Nelson25805/igdbGameInfo](https://github.com/N
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://www.linkedin.com/in/nelson-mcfadyen-806134133/
 
-[project-Image]: GithubImages/projectImage.png
 
 [project-screenshot]: GithubImages/mainScreen.png
 [project-screenshot2]: GithubImages/filteredGameSearch.gif
