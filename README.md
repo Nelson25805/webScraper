@@ -31,7 +31,7 @@
     <a href="https://github.com/Nelson25805/igdbGameInfo"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/Nelson25805/igdbGameInfo">View Demo</a>
+    <a href="https://github.com/Nelson25805/webScraper">View Demo</a>
     &middot;
     <a href="https://github.com/Nelson25805/igdbGameInfo/issues/new?labels=bug&template=bug-report---.md">Report Bug</a>
     &middot;
