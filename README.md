@@ -28,7 +28,7 @@
   <p align="center">
     An application to scrape websites of data on the page, including images.
     <br />
-    <a href="https://github.com/Nelson25805/igdbGameInfo"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/Nelson25805/webScraper"><strong>Explore the docs »</strong></a>
     <br />
     <br />
     <a href="https://github.com/Nelson25805/webScraper">View Demo</a>
