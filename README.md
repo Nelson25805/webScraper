@@ -179,7 +179,7 @@ This tool fetches and downloads content from the web. Respect site terms of serv
 - [ ] Feature 3
     - [ ] Nested Feature
 
-See the [open issues](https://github.com/Nelson25805/igdbGameInfo/issues) for a full list of proposed features (and known issues).
+See the [open issues](https://github.com/Nelson25805/webScraper/issues) for a full list of proposed features (and known issues).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 -->
