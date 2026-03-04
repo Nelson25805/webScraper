@@ -227,7 +227,7 @@ Project Link: [https://github.com/Nelson25805/webScraper](https://github.com/Nel
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/Nelson25805/igdbGameInfo.svg?style=for-the-badge
+[contributors-shield]: https://img.shields.io/github/contributors/Nelson25805/webScraper.svg?style=for-the-badge
 [contributors-url]: https://github.com/Nelson25805/igdbGameInfo/graphs/contributors
 [forks-shield]: https://img.shields.io/github/forks/Nelson25805/igdbGameInfo.svg?style=for-the-badge
 [forks-url]: https://github.com/Nelson25805/igdbGameInfo/network/members
