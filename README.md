@@ -229,7 +229,7 @@ Project Link: [https://github.com/Nelson25805/webScraper](https://github.com/Nel
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 [contributors-shield]: https://img.shields.io/github/contributors/Nelson25805/webScraper.svg?style=for-the-badge
 [contributors-url]: https://github.com/Nelson25805/webScraper/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/Nelson25805/igdbGameInfo.svg?style=for-the-badge
+[forks-shield]: https://img.shields.io/github/forks/Nelson25805/webScraper.svg?style=for-the-badge
 [forks-url]: https://github.com/Nelson25805/igdbGameInfo/network/members
 [stars-shield]: https://img.shields.io/github/stars/Nelson25805/igdbGameInfo.svg?style=for-the-badge
 [stars-url]: https://github.com/Nelson25805/igdbGameInfo/stargazers
