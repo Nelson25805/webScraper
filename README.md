@@ -234,7 +234,7 @@ Project Link: [https://github.com/Nelson25805/webScraper](https://github.com/Nel
 [stars-shield]: https://img.shields.io/github/stars/Nelson25805/webScraper.svg?style=for-the-badge
 [stars-url]: https://github.com/Nelson25805/webScraper/stargazers
 [issues-shield]: https://img.shields.io/github/issues/Nelson25805/webScraper.svg?style=for-the-badge
-[issues-url]: https://github.com/Nelson25805/igdbGameInfo/issues
+[issues-url]: https://github.com/Nelson25805/webScraper/issues
 [license-shield]: https://img.shields.io/github/license/Nelson25805/webScraper.svg?style=for-the-badge
 [license-url]: https://github.com/Nelson25805/webScraper/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
